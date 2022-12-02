@@ -1,6 +1,5 @@
 import librosa
 from paho.mqtt import client as mqtt_client
-import sounddevice as sd
 from scipy.io.wavfile import write
 import json
 import time
