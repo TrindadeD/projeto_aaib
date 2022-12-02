@@ -33,7 +33,7 @@ if st.button('Start'):
     st.subheader('Wave')
 
     plt.figure(figsize=(15, 3))
-    librosa.display.waveplot(y, sr=sampling_rate)
+    librosa.display.waveplot(y, sr=sr)
     st.pyplot()
     
     
