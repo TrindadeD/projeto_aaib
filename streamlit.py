@@ -11,20 +11,20 @@ topic = "projeto_aaib"
 
 client = mqtt_client.Client()
 client.connect(broker, port)
+if st.button('Start'):
+    def publish(client):
+        inicio = 'start'
+        result = client.publish(topic, inicio)
+        status = result[0]
+        if status == 0:
+            print(f"Message sent to topic `{topic}`")
+        else:
+            print(f"Failed to send message to topic {topic}")
 
-def publish(client):
-    inicio = 'start'
-    result = client.publish(topic, inicio)
-    status = result[0]
-    if status == 0:
-        print(f"Message sent to topic `{topic}`")
-    else:
-        print(f"Failed to send message to topic {topic}")
-
-st.title('Extração de Features de um ficheiro áudio')
-
-if st.button('Start'):        
-    publish(client)
+    st.title('Extração de Features de um ficheiro áudio')
+        publish(client)
+if st.button('Gráficos'):        
+    #publish(client)
 
     st.header('Extração de Features')
     #y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
