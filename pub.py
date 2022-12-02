@@ -21,27 +21,27 @@ def connect_mqtt():
     client.connect(broker, port)
     return client
 
-#def record(client):
- #   print('Recording')
-  #  fs = 32000  # Frequencia de amostragem
-   # seconds = 5  # Duaracao da gravacao
+def record(client):
+    print('Recording')
+    fs = 32000  # Frequencia de amostragem
+    seconds = 5  # Duaracao da gravacao
     
-   # recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
- #   sd.wait()
-  #  write('grav1.wav', fs, recording)
-   # print('Done Recording')
+    recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
+    sd.wait()
+    write('grav1.wav', fs, recording)
+    print('Done Recording')
     
-def publish(client):
-    y, sr = librosa.load('grav1.wav') 
-    yy = y.tolist()
-    df = json.dumps(yy)
-    msg = df
-    result = client.publish(topic1, msg)
-    status = result[0]
-    if status == 0:
-        print(f"Message sent to topic `{topic1}`")
-    else:
-        print(f"Failed to send message to topic {topic1}")
+    def publish(client):
+        y, sr = librosa.load('grav1.wav') 
+        yy = y.tolist()
+        df = json.dumps(yy)
+        msg = df
+        result = client.publish(topic1, msg)
+        status = result[0]
+        if status == 0:
+            print(f"Message sent to topic `{topic1}`")
+        else:
+            print(f"Failed to send message to topic {topic1}")
 
         
 def subscribe(client: mqtt_client):
