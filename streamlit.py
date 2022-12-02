@@ -29,6 +29,14 @@ if st.button('Start'):
     st.header('Extração de Features')
     y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
     
+    # wave
+    st.subheader('Wave')
+
+    plt.figure(figsize=(15, 3))
+    librosa.display.waveplot(y, sr=sampling_rate)
+    st.pyplot()
+    
+    
     # espetrograma
     st.subheader('Espectograma')
     
