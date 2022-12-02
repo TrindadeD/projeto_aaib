@@ -3,6 +3,7 @@ from paho.mqtt import client as mqtt_client
 from scipy.io.wavfile import write
 import json
 import time
+import sounddevice as sd
 
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
