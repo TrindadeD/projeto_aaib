@@ -22,7 +22,7 @@ if st.button('Start'):
             print(f"Failed to send message to topic {topic}")
 
     st.title('Extração de Features de um ficheiro áudio')
-        publish(client)
+    publish(client)
 if st.button('Gráficos'):        
     #publish(client)
 
