@@ -48,7 +48,15 @@ if st.button('Start'):
     plt.colorbar()
     st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot()
+
+    #mel spectograms
+    st.subheader('Mel spectogram')
     
+    plt.figure(figsize=(15, 3))
+    s_audio = librosa.feature.melspectrogram(y, sr=sr)
+    librosa.display.specshow(s_audio)
+    st.pyplot()
+
     # Magnitude total do sinal (sonoridade / parametro de energia)
     st.subheader('Sonoridade')
     
