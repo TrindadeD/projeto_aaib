@@ -3,8 +3,7 @@ import time
 import csv
 import json
 import pandas as pd
-#import os
-#import subprocess
+
 
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
