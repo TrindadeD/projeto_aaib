@@ -1,0 +1,34 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks: 
+  - init: |
+      (
+          #Install Streamlit
+          sudo pip3 install streamlit
+
+
+          #Install MQTT
+          sudo apt install -y mosquitto
+          sudo apt install mosquitto-clients
+
+          sudo service mosquitto start
+          sudo service mosquitto status
+
+          #Install Paho-MQTT
+          sudo pip3 install paho-mqtt
+          git clone https://github.com/eclipse/paho.mqtt.python.git
+          cd paho.mqtt.python
+          python setup.py install
+
+          #Install other Python Libraries
+          #python -m pip install sounddevice
+
+          sudo apt-get install libsndfile1
+          sudo pip install librosa
+          python -m pip install scipy
+          python -m pip install matplotlib
+          python -m pip install pandas
+          python -m pip install time
+          python -m pip install json
+          python -m pip install
+          pip install plotly==5.11.0
+      )
