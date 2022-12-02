@@ -27,13 +27,15 @@ if st.button('Start'):
     publish(client)
 
     st.header('Extração de Features')
-    y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
-    
+    #y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
+    dados=np.loadtxt(r'C:\Users\ASUS\Desktop\MEB\2 ano\1 semestre\AAIB\projeto_alternativo\new_msg.csv', delimiter=',', dtype='str' )
+    g = np.asarray(dados, dtype=np.float64)
+    sr=22050
     # chromagram
     st.subheader('Chromagram')
 
     plt.figure(figsize=(15, 3))
-    chromagram = librosa.feature.chroma_stft(y=y,sr=sr)
+    chromagram = librosa.feature.chroma_stft(g,sr=sr)
     librosa.display.specshow(chromagram)
     st.pyplot()
     
@@ -41,7 +43,7 @@ if st.button('Start'):
     # espetrograma
     st.subheader('Espectograma')
     
-    X = librosa.stft(y)
+    X = librosa.stft(g)
     Xdb = librosa.amplitude_to_db(abs(X))
     plt.figure(figsize=(15, 3))
     librosa.display.specshow(Xdb, sr=sr, x_axis='time', y_axis='hz')
@@ -53,7 +55,7 @@ if st.button('Start'):
     st.subheader('Mel spectogram')
     
     plt.figure(figsize=(15, 3))
-    s_audio = librosa.feature.melspectrogram(y, sr=sr)
+    s_audio = librosa.feature.melspectrogram(g, sr=sr)
     librosa.display.specshow(s_audio)
     st.pyplot()
 
@@ -61,7 +63,7 @@ if st.button('Start'):
     st.subheader('Sonoridade')
     
     # Valor de RMS para cada valor de magnitude
-    S, phase = librosa.magphase(librosa.stft(y)) #frequencia e fase
+    S, phase = librosa.magphase(librosa.stft(g)) #frequencia e fase
     rms = librosa.feature.rms(S=S) #root mean square da gravacao
     
     # Grafico
@@ -79,8 +81,8 @@ if st.button('Start'):
     #zero crossing rate
     st.subheader('Zero Crossing Rate')
     
-    zcrs = librosa.feature.zero_crossing_rate(y)
-    print(f"Zero crossing rate: {sum(librosa.zero_crossings(y))}")
+    zcrs = librosa.feature.zero_crossing_rate(g)
+    print(f"Zero crossing rate: {sum(librosa.zero_crossings(g))}")
     plt.figure(figsize=(15, 3))
     plt.plot(zcrs[0])
     plt.title('Zero Crossing Rate')
