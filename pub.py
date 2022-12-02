@@ -28,7 +28,7 @@ def publish(client):
     yy = y.tolist()
     df = json.dumps(yy)
     msg = df
-    result = client.publish(topic, msg)
+    result = client.publish(topic1, msg)
     status = result[0]
     if status == 0:
         print(f"Message sent to topic `{topic1}`")
