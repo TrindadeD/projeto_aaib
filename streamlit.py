@@ -6,7 +6,7 @@ from librosa import display
 
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
-topic = "daniel" 
+topic = "projeto_aaib" 
 
 client = mqtt_client.Client()
 client.connect(broker, port)
