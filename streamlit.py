@@ -11,6 +11,7 @@ topic = "projeto_aaib"
 
 client = mqtt_client.Client()
 client.connect(broker, port)
+st.header('Extração de Features')
 if st.button('Start'):
     def publish(client):
         inicio = 'start'
@@ -21,7 +22,7 @@ if st.button('Start'):
         else:
             print(f"Failed to send message to topic {topic}")
 
-    st.title('Extração de Features de um ficheiro áudio')
+    #st.title('Extração de Features de um ficheiro áudio')
     publish(client)
 if st.button('Gráficos'):        
     #publish(client)
