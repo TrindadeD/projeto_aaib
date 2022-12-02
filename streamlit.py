@@ -6,7 +6,7 @@ st.title('Extração de Features de um ficheiro áudio')
 
 #################### GRAVAR E GUARDAR FICHEIRO DE SOM #########################
 
-import sounddevice as sd
+
 from scipy.io.wavfile import write
 
 ########################### GRAVAR AUDIO ######################################
