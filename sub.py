@@ -8,13 +8,8 @@ import pandas as pd
 
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
-topic = "something"
-# generate client ID with pub prefix randomly
-#client_id = f'python-mqtt-{random.randint(0, 100)}'
-#username = 'emqx'
-#password = 'public'
-#os.system('python test_publisher.py')
-#subprocess.run('test_publisher.py')
+topic = "som"
+
 
 def connect_mqtt() -> mqtt_client:
     def on_connect(client, userdata, flags, rc):
@@ -24,7 +19,6 @@ def connect_mqtt() -> mqtt_client:
             print("Failed to connect, return code %d\n", rc)
 
     client = mqtt_client.Client()
-    #client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.connect(broker, port)
     return client

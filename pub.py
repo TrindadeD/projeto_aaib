@@ -7,7 +7,7 @@ import time
 broker = 'mqtt.eclipseprojects.io'
 port = 1883
 topic = "projeto_aaib"
-topic1 = "something"
+topic1 = "som"
 
 
 def connect_mqtt():
