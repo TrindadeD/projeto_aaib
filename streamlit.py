@@ -29,11 +29,12 @@ if st.button('Start'):
     st.header('Extração de Features')
     y, sr = librosa.load('grav1.wav') #descarregar o ficheiro
     
-    # wave
-    st.subheader('Wave')
+    # chromagram
+    st.subheader('Chromagram')
 
     plt.figure(figsize=(15, 3))
-    librosa.display.waveplot(y, sr=sr)
+    chromagram = librosa.feature.chroma_stft(y=y,sr=sr)
+    librosa.display.specshow(chromagram)
     st.pyplot()
     
     
